@@ -1,6 +1,6 @@
-package me.yesithtk.flexauth.listeners;
+package me.YesithTK.FlexAuth.listeners;
 
-import me.yesithtk.flexauth.FlexAuth;
+import me.YesithTK.FlexAuth.FlexAuth;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
