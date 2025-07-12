@@ -1,0 +1,39 @@
+package me.yesithtk.flexauth.commands;
+
+import me.yesithtk.flexauth.FlexAuth;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+public class LoginCommand implements CommandExecutor {
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        if (!(sender instanceof Player)) {
+            sender.sendMessage("Este comando solo puede ser usado por jugadores.");
+            return true;
+        }
+
+        Player player = (Player) sender;
+
+        if (args.length != 1) {
+            player.sendMessage("Uso correcto: /login <contraseña>");
+            return true;
+        }
+
+        String password = args[0];
+
+        boolean valid = FlexAuth.getInstance().getDatabaseManager()
+                .getConnection() != null;
+
+        if (valid) {
+            player.sendMessage("Has iniciado sesión correctamente.");
+        } else {
+            player.sendMessage("Contraseña incorrecta o error de conexión.");
+        }
+
+        return true;
+    }
+}
