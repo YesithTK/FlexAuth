@@ -1,11 +1,11 @@
-package me.yesithtk.flexauth.managers;
+package me.YesithTK.FlexAuth.managers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import me.yesithtk.flexauth.FlexAuth;
+import me.YesithTK.FlexAuth.FlexAuth;
 
 public class DatabaseManager {
 
