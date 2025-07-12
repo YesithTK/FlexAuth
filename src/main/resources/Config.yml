@@ -1,0 +1,85 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃           CONFIGURACIÓN DE FLEXAUTH           ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+# Todas las opciones están explicadas. Cualquier cambio incorrecto puede causar errores.
+# Guarda y reinicia el servidor para aplicar los cambios.
+
+mysql:
+  host: "localhost"
+  puerto: 3306
+  base_de_datos: "flexauth"
+  usuario: "root"
+  contraseña: "1234"
+  usarSSL: false
+  reconexion_automatica: true
+  tiempo_espera: 30
+  pool_maximo: 10
+
+opciones:
+  auto_login_premium: true            # ¿Permitir que los jugadores premium entren sin loguearse?
+  auto_login_bedrock: true            # ¿Permitir que los jugadores de Bedrock entren automáticamente?
+  forzar_login_no_premium: true       # ¿Obligar a los No-Premium a loguearse?
+  comando_premium_activado: true      # ¿Activar el comando /premium?
+  min_caracteres_password: 6
+  max_caracteres_password: 32
+  modo_debug: false
+  kick_si_no_login: true              # ¿Expulsar si no inicia sesión luego de cierto tiempo?
+  tiempo_max_login_segundos: 60
+
+floodgate:
+  prefijo_jugador_bedrock: "*"        # Usualmente "*" o ".", depende de tu configuración de Floodgate
+
+seguridad:
+  algoritmo_hash: "bcrypt"            # Opciones: bcrypt, sha256, md5 (no recomendado)
+  intentos_maximos_login: 5
+  bloquear_si_falla: true
+  segundos_bloqueo: 60
+  permitir_comandos_antes_de_login:
+    - "/help"
+    - "/login"
+    - "/register"
+
+mensajes:
+  usar_archivo_personalizado: true
+  archivo: "es_ES.yml"
+
+rendimiento:
+  mysql_asincrono: true
+  cachear_cuentas: true
+  tiempo_cache_segundos: 300
+
+registro:
+  permitir_multi_sesion: false
+  verificar_uuid: true
+  retraso_login_ticks: 20
+
+comandos:
+  permitir_cambiar_password: true
+  permitir_logout: true
+  permitir_premium: true
+
+logging:
+  consola_mensaje_inicio: true
+  registrar_logins: true
+  registrar_registros: true
+  registrar_comandos_premium: true
+  registrar_cambios_password: true
+
+idioma:
+  activo: "es_ES"  # Puedes cambiarlo a "en_US"
+
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃        OPCIONES INTERNAS — ¡NO TOCAR!         ┃
+# ┃ Estas opciones son críticas para el sistema.  ┃
+# ┃ Cambiarlas puede romper el plugin.            ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+interno:
+  version_config: 1
+  modo_compatibilidad: "legacy"     # Soporte para versiones desde la 1.8
+  archivo_config_cargado: true
+  permitir_actualizaciones_auto: false
+  integracion_floodgate: true
+  integracion_fastlogin: false
+  formato_uuid: "offline"
+  salt_secreto: "NO_CAMBIAR_ESTE_VALOR"
