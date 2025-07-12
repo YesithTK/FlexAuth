@@ -1,0 +1,103 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃            FLEXAUTH CUSTOM MESSAGES (ENGLISH)         ┃
+# ┃ You can edit every message the plugin uses.           ┃
+# ┃ Supports Minecraft color codes: &a &b &c etc.         ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+# Common prefix for all plugin messages
+prefix: "&7[&aFlexAuth&7] "
+
+# Toggleable message sections
+options:
+  show-welcome: true
+  show-block-message: true
+  show-debug: false
+  show-help: true
+
+login:
+  required: "&cYou must log in using &e/login <password>"
+  success: "&aYou have successfully logged in!"
+  already: "&eYou are already logged in."
+  error: "&cIncorrect password. Please try again."
+  kicked: "&cYou didn’t log in in time. Disconnected."
+
+register:
+  success: "&aYou have successfully registered!"
+  already: "&eYou already have an account."
+  usage: "&cUsage: /register <password> <confirm>"
+  mismatch: "&cPasswords do not match."
+  error: "&cAn error occurred while registering. Try again later."
+  too-short: "&cYour password is too short. Minimum: %min% characters."
+  too-long: "&cYour password is too long. Maximum: %max% characters."
+
+changepassword:
+  usage: "&cUsage: /changepassword <current> <new>"
+  success: "&aYour password has been changed!"
+  incorrect: "&cYour current password is incorrect."
+  same: "&cNew password must be different than the old one."
+  error: "&cCould not change your password. Try again."
+
+logout:
+  success: "&aYou have successfully logged out."
+  not-logged: "&cYou are not logged in."
+
+premium:
+  activated: "&aYour account is now marked as premium. Welcome!"
+  already: "&eYou were already marked as premium."
+  not-verified: "&cWe couldn’t verify your account as premium."
+  disabled: "&cThis command is disabled in the config."
+  only-java: "&cOnly Java Edition players can use this command."
+
+block:
+  active: "&cYou are temporarily blocked. Try again in %time% seconds."
+  cleared: "&aYou can now try logging in again."
+
+session-expired:
+  message: "&cYour session has expired. Please reconnect."
+
+join:
+  welcome-premium: "&aWelcome back, &f%player% &a(premium access)"
+  welcome-bedrock: "&aHello Bedrock player, &f%player%"
+  welcome-cracked: "&eWelcome &f%player%&e. Please register or log in."
+
+general:
+  no-permission: "&cYou do not have permission to use this command."
+  player-only: "&cOnly players can use this command."
+  unknown-command: "&cUnknown command. Use /help"
+  unknown-error: "&cAn unknown error occurred."
+  invalid-format: "&cInvalid command format."
+
+help:
+  login: "&aUse &e/login <password> &ato log in."
+  register: "&aUse &e/register <password> <confirm> &ato create your account."
+  changepass: "&aUse &e/changepassword <old> <new> &ato change your password."
+  premium: "&aUse &e/premium &ato enable premium mode (for verified accounts)."
+
+debug:
+  detecting: "&7[Debug] Detecting player type for %player%..."
+  is-premium: "&7[Debug] %player% is Java Premium."
+  is-cracked: "&7[Debug] %player% is Java Cracked."
+  is-bedrock: "&7[Debug] %player% connected from Bedrock."
+  uuid-match: "&7[Debug] UUID verified: %uuid%"
+  uuid-mismatch: "&c[Debug] UUID mismatch!"
+
+mysql:
+  connected: "&a[FlexAuth] Connected to the database successfully."
+  error: "&c[FlexAuth] Could not connect to MySQL."
+  query-failed: "&c[FlexAuth] MySQL query failed: %error%"
+
+prefixes:
+  info: "&7[&bINFO&7] "
+  warning: "&7[&eWARNING&7] "
+  error: "&7[&cERROR&7] "
+  success: "&7[&aSUCCESS&7] "
+
+system:
+  reloading: "&eReloading FlexAuth..."
+  reloaded: "&aFlexAuth successfully reloaded!"
+  version: "&7Plugin version: &f%version%"
+  author: "&7Created by: &fYesith"
+
+support:
+  discord: "&7Need help? Join our Discord: &bdiscord.yourserver.net"
+  website: "&7Visit our website: &bstore.yourserver.net"
