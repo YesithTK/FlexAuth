@@ -1,0 +1,75 @@
+package me.YesithTK.FlexAuth;
+
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.Bukkit;
+import org.bukkit.command.ConsoleCommandSender;
+
+import dev.yesith.flexauth.managers.*;
+import dev.yesith.flexauth.utils.*;
+
+public class FlexAuth extends JavaPlugin {
+
+    public static String prefix;
+    public static String version;
+
+    private ConfigsManager configsManager;
+    private MySQLManager mySQLManager;
+    private PlayerManager playerManager;
+    private LoginManager loginManager;
+    private MessageManager messageManager;
+    private FloodgateDetector floodgateDetector;
+
+    @Override
+    public void onEnable() {
+        version = this.getDescription().getVersion();
+        prefix = "§b[FlexAuth]§r";
+
+        ConsoleCommandSender console = Bukkit.getConsoleSender();
+        console.sendMessage(prefix + " §aActivando FlexAuth v" + version + "...");
+
+        configsManager = new ConfigsManager(this);
+        configsManager.setup();
+
+        messageManager = new MessageManager(this);
+        mySQLManager = new MySQLManager(this);
+        playerManager = new PlayerManager(this);
+        loginManager = new LoginManager(this);
+        floodgateDetector = new FloodgateDetector();
+
+        registerEvents();
+        registerCommands();
+
+        console.sendMessage(prefix + " §a¡Activado correctamente!");
+    }
+
+    @Override
+    public void onDisable() {
+        ConsoleCommandSender console = Bukkit.getConsoleSender();
+        console.sendMessage(prefix + " §cDesactivando FlexAuth...");
+
+        if (mySQLManager != null) {
+            mySQLManager.disconnect();
+        }
+
+        console.sendMessage(prefix + " §c¡Plugin desactivado!");
+    }
+
+    private void registerEvents() {
+        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerQuitListener(this), this);
+    }
+
+    private void registerCommands() {
+        getCommand("login").setExecutor(new LoginCommand(this));
+        getCommand("register").setExecutor(new RegisterCommand(this));
+        getCommand("changepassword").setExecutor(new ChangePasswordCommand(this));
+        getCommand("premium").setExecutor(new PremiumCommand(this));
+    }
+
+    public ConfigsManager getConfigsManager() { return configsManager; }
+    public MySQLManager getMySQLManager() { return mySQLManager; }
+    public PlayerManager getPlayerManager() { return playerManager; }
+    public LoginManager getLoginManager() { return loginManager; }
+    public MessageManager getMessageManager() { return messageManager; }
+    public FloodgateDetector getFloodgateDetector() { return floodgateDetector; }
+}
