@@ -1,0 +1,33 @@
+package me.yesithtk.flexauth.listeners;
+
+import me.yesithtk.flexauth.FlexAuth;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+
+public class PlayerJoinListener implements Listener {
+
+    @EventHandler
+    public void onJoin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+
+        boolean isBedrock = player.getClass().getName().toLowerCase().contains("floodgate");
+        boolean isPremium = player.hasPlayedBefore();
+
+        if (isBedrock) {
+            Bukkit.getScheduler().runTaskLater(FlexAuth.getInstance(), () -> {
+                player.sendMessage("Jugador Bedrock detectado. Has iniciado sesión automáticamente.");
+            }, 20L);
+        } else if (isPremium) {
+            Bukkit.getScheduler().runTaskLater(FlexAuth.getInstance(), () -> {
+                player.sendMessage("Jugador Premium detectado. Has iniciado sesión automáticamente.");
+            }, 20L);
+        } else {
+            Bukkit.getScheduler().runTaskLater(FlexAuth.getInstance(), () -> {
+                player.sendMessage("Bienvenido. Usa /login o /register para comenzar.");
+            }, 20L);
+        }
+    }
+}
