@@ -1,0 +1,63 @@
+package me.yesithtk.flexauth.managers;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import me.yesithtk.flexauth.FlexAuth;
+
+public class DatabaseManager {
+
+    private Connection connection;
+
+    public void connect() {
+        String host = FlexAuth.getInstance().getConfig().getString("mysql.host");
+        int port = FlexAuth.getInstance().getConfig().getInt("mysql.port");
+        String database = FlexAuth.getInstance().getConfig().getString("mysql.database");
+        String username = FlexAuth.getInstance().getConfig().getString("mysql.username");
+        String password = FlexAuth.getInstance().getConfig().getString("mysql.password");
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?useSSL=false&allowPublicKeyRetrieval=true&autoReconnect=true";
+            connection = DriverManager.getConnection(url, username, password);
+            FlexAuth.getInstance().getLogger().info("Conectado exitosamente a la base de datos MySQL.");
+            createTable();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            FlexAuth.getInstance().getLogger().severe("No se pudo conectar a la base de datos MySQL.");
+        }
+    }
+
+    private void createTable() {
+        String sql = "CREATE TABLE IF NOT EXISTS flexauth_users (" +
+                     "uuid VARCHAR(36) PRIMARY KEY," +
+                     "username VARCHAR(16)," +
+                     "password VARCHAR(255)," +
+                     "premium BOOLEAN DEFAULT FALSE," +
+                     "bedrock BOOLEAN DEFAULT FALSE" +
+                     ");";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void disconnect() {
+        if (connection != null) {
+            try {
+                connection.close();
+                FlexAuth.getInstance().getLogger().info("Conexión MySQL cerrada correctamente.");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
