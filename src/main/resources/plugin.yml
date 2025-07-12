@@ -1,0 +1,34 @@
+name: FlexAuth
+version: 1.0
+main: me.YesithTK.FlexAuth
+author: YesithTK
+api-version: 1.13
+description: Plugin de login automático para Java Premium, Bedrock (Geyser) y No-Premium
+
+commands:
+  login:
+    description: Inicia sesión con tu contraseña
+    usage: /login <contraseña>
+  register:
+    description: Registra una nueva cuenta con contraseña
+    usage: /register <contraseña>
+  changepassword:
+    description: Cambia tu contraseña actual
+    usage: /changepassword <contraseñaNueva>
+  premium:
+    description: Marca tu cuenta como premium
+    usage: /premium
+
+permissions:
+  flexauth.command.login:
+    description: Permiso para usar /login
+    default: false
+  flexauth.command.register:
+    description: Permiso para usar /register
+    default: false
+  flexauth.command.changepassword:
+    description: Permiso para usar /changepassword
+    default: false
+  flexauth.command.premium:
+    description: Permiso para usar /premium
+    default: false
