@@ -1,0 +1,103 @@
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃                MENSAJES PERSONALIZADOS DE FLEXAUTH      ┃
+# ┃ Puedes editar todos los textos del plugin.              ┃
+# ┃ Usa colores de Minecraft con &a &b &c ...               ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+# Prefijo común para todos los mensajes del plugin
+prefijo: "&7[&aFlexAuth&7] "
+
+# Si deseas desactivar ciertos mensajes automáticamente
+opciones:
+  mostrar-bienvenida: true
+  mostrar-mensaje-bloqueo: true
+  mostrar-debug: false
+  mostrar-ayuda: true
+
+login:
+  requerido: "&cDebes iniciar sesión con &e/login <contraseña>"
+  exitoso: "&a¡Has iniciado sesión correctamente!"
+  ya-iniciado: "&eYa estabas logueado."
+  error: "&cContraseña incorrecta. Intenta nuevamente."
+  expulsado: "&cNo iniciaste sesión a tiempo. Te desconectamos."
+
+registro:
+  exitoso: "&a¡Te has registrado con éxito!"
+  ya-registrado: "&eYa tienes una cuenta registrada."
+  uso: "&cUsa: /register <contraseña> <confirmar>"
+  diferentes: "&cLas contraseñas no coinciden."
+  error: "&cError al registrarse. Intenta de nuevo."
+  muy-corta: "&cTu contraseña es muy corta. Mínimo: %min% caracteres."
+  muy-larga: "&cTu contraseña es muy larga. Máximo: %max% caracteres."
+
+changepassword:
+  uso: "&cUsa: /changepassword <actual> <nueva>"
+  correcta: "&aTu contraseña ha sido actualizada correctamente."
+  incorrecta: "&cTu contraseña actual no es válida."
+  misma: "&cTu nueva contraseña no puede ser igual a la anterior."
+  error: "&cNo se pudo cambiar tu contraseña."
+
+logout:
+  exitoso: "&aCierre de sesión exitoso. ¡Hasta luego!"
+  no-logueado: "&cNo puedes cerrar sesión si no estás logueado."
+
+premium:
+  activado: "&aTu cuenta fue marcada como premium. ¡Bienvenido original!"
+  ya-premium: "&eTu cuenta ya era premium."
+  no-verificada: "&cNo pudimos verificar si tu cuenta es original."
+  deshabilitado: "&cEste comando está deshabilitado en la configuración."
+  solo-java: "&cEste comando solo está disponible para jugadores Java."
+
+bloqueo:
+  activado: "&cHas sido bloqueado temporalmente. Intenta de nuevo en %tiempo% segundos."
+  desactivado: "&aYa puedes volver a intentar iniciar sesión."
+
+tiempo-expirado:
+  mensaje: "&cTu sesión ha expirado. Reconéctate."
+
+unirse:
+  bienvenida-premium: "&aBienvenido de nuevo, &f%jugador% &a(disfruta tu acceso premium)"
+  bienvenida-bedrock: "&aHola jugador de Bedrock, &f%jugador%"
+  bienvenida-cracked: "&eBienvenido &f%jugador%&e. Por favor regístrate o inicia sesión."
+
+general:
+  sin-permiso: "&cNo tienes permiso para este comando."
+  solo-jugadores: "&cEste comando solo puede usarse dentro del juego."
+  comando-desconocido: "&cComando no reconocido. Usa /help"
+  error-desconocido: "&cHa ocurrido un error inesperado."
+  formato-inválido: "&cFormato incorrecto. Por favor revisa el comando."
+
+ayuda:
+  login: "&aUsa &e/login <contraseña> &apara iniciar sesión."
+  register: "&aUsa &e/register <contraseña> <confirmar> &apara registrarte."
+  changepass: "&aUsa &e/changepassword <actual> <nueva> &apara cambiar tu contraseña."
+  premium: "&aUsa &e/premium &apara activar el modo premium (si tienes cuenta original)."
+
+debug:
+  detectando: "&7[Debug] Verificando tipo de cuenta para %jugador%..."
+  es-premium: "&7[Debug] %jugador% es Java Premium."
+  es-cracked: "&7[Debug] %jugador% es Java No-Premium."
+  es-bedrock: "&7[Debug] %jugador% se conectó desde Bedrock."
+  uuid-coincide: "&7[Debug] UUID verificado: %uuid%"
+  uuid-error: "&c[Debug] UUID no coincide con el esperado."
+
+mysql:
+  conectado: "&a[FlexAuth] Conexión a la base de datos establecida."
+  error: "&c[FlexAuth] No se pudo conectar a MySQL."
+  fallo-consulta: "&c[FlexAuth] Fallo en la consulta MySQL: %error%"
+
+prefijos:
+  info: "&7[&bINFO&7] "
+  advertencia: "&7[&eADVERTENCIA&7] "
+  error: "&7[&cERROR&7] "
+  exito: "&7[&aÉXITO&7] "
+
+mensajes-sistema:
+  recargando: "&eFlexAuth se está recargando..."
+  recargado: "&a¡FlexAuth recargado con éxito!"
+  version: "&7Versión del plugin: &f%version%"
+  autor: "&7Creado por: &fYesith"
+
+soporte:
+  discord: "&7¿Necesitas ayuda? Únete a nuestro Discord: &bdiscord.tuservidor.net"
+  web: "&7Visita nuestra web: &btienda.tuservidor.net"
