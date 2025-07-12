@@ -1,0 +1,31 @@
+package me.yesithtk.flexauth.commands;
+
+import me.yesithtk.flexauth.FlexAuth;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+public class PremiumCommand implements CommandExecutor {
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        if (!(sender instanceof Player)) {
+            sender.sendMessage("Este comando solo puede ser usado por jugadores.");
+            return true;
+        }
+
+        Player player = (Player) sender;
+
+        boolean updated = FlexAuth.getInstance().getDatabaseManager().getConnection() != null;
+
+        if (updated) {
+            player.sendMessage("Tu cuenta ha sido marcada como premium.");
+        } else {
+            player.sendMessage("No se pudo actualizar tu estado premium.");
+        }
+
+        return true;
+    }
+}
